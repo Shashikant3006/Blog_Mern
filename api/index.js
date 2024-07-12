@@ -11,7 +11,11 @@ const port = process.env.PORT;
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin:["https://"],
+    methods:["POST","GET"],
+    credentials:true
+}))
 
 app.get("/",(req,res)=>{
     res.setHeader("Access-Control-Allow-Credentials","true");
